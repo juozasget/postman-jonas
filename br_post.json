@@ -1,0 +1,25 @@
+{
+        "messages": [{
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"generic",
+                "elements":[
+                   {
+                    "title":"Welcome to Our Marketplace!",
+                    "image_url":"https://i.imgur.com/ekFGE2J.jpg",
+                    "subtitle":"Fresh fruits and vegetables. Yum.",
+                    "buttons":[
+                      {
+                        "type":"web_url",
+                        "url":"https://www.youtube.com",
+                        "title":"View Website"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }

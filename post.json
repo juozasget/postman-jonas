@@ -1,0 +1,8 @@
+{
+  "greeting":[
+    {
+      "locale":"default",
+      "text":"Hello {{user_first_name}}! I am a bot that broadcasts rate of BTC/USD and ETH/USD everyday. Please start a conversation with me to learn more! :)"
+    }
+  ]
+}

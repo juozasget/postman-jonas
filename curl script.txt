@@ -1,0 +1,3 @@
+curl -X POST -H "Content-Type: application/json" -d "@post.json" "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAIXkZB1AZCTABAMBIi0qbJ4UaZARR2thJJzysncPifE4jXy71jrVSbGqfx9WheO5kC6nWinJdO8uWYjWMpuRPwRjfm7gSHqscMXw8ZBWLF0uKpaWMAZBS2pVfqIUfaSZBIzjp8Q7slI5Baypyin4jWCSSlJKAWOW21jZCIssPbDQZDZD"
+
+curl -X POST -H "Content-Type: application/json" -d "@br_post.json" "https://graph.facebook.com/v2.11/me/message_creatives?access_token=EAAIXkZB1AZCTABAMBIi0qbJ4UaZARR2thJJzysncPifE4jXy71jrVSbGqfx9WheO5kC6nWinJdO8uWYjWMpuRPwRjfm7gSHqscMXw8ZBWLF0uKpaWMAZBS2pVfqIUfaSZBIzjp8Q7slI5Baypyin4jWCSSlJKAWOW21jZCIssPbDQZDZD"

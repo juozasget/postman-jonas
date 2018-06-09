@@ -1,6 +1,8 @@
 import os
 import sys
 import json
+import schedule
+import time
 from datetime import datetime
 
 import requests
@@ -163,3 +165,15 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#________________Job sheduling part__________________________________
+
+def job():
+    print("I'm working...")
+
+schedule.every(1).minutes.do(job)
+schedule.every().wednesday.at("13:15").do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)

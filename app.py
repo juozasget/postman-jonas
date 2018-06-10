@@ -169,7 +169,8 @@ if __name__ == '__main__':
 #________________Job sheduling part__________________________________
 
 def job():
-    print("I'm working...")
+    message_creative_id = set_broadcast()   #Send the message to fb
+    send_broadcast(message_creative_id)
 
 schedule.every(1).minutes.do(job)
 schedule.every().wednesday.at("13:15").do(job)

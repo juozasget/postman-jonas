@@ -1,2 +1,2 @@
 web: gunicorn app:app --log-file=-
-heroku ps:scale web=1
+worker: celery worker --app=tasks.app

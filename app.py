@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import schedule
 import time
 from datetime import datetime
 
@@ -9,10 +8,6 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
-
-#For production on Heroku enviroment
-#ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-#VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 
 ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']

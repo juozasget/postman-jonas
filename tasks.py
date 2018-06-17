@@ -1,13 +1,21 @@
+from celery import Celery
+from celery.schedules import crontab
 
-#________________Job sheduling part__________________________________
+BROKER_URL = os.environ['REDIS_URL']
 
-def job():
-    message_creative_id = set_broadcast()   #Send the message to fb
-    send_broadcast(message_creative_id)
+celery = Celery(app.name, broker=app.config['BROKER_URL'])
+celery.conf.update(app.config)
 
-schedule.every(1).minutes.do(job)
-#schedule.every().wednesday.at("13:15").do(job)
+app = Celery()
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+@app.on_after_configure.connect
+def setup_periodic_tasks(sender, **kwargs):
+    # Executes every Monday morning at 7:30 a.m.
+    sender.add_periodic_task(
+        crontab(hour=7, minute=30, day_of_week=1),
+        test.s('Happy Mondays!'),
+    )
+
+@app.task
+def test(arg):
+    print(arg)

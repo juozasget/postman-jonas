@@ -8,6 +8,9 @@ import requests
 from flask import Flask, request
 from celery import Celery
 
+
+app = Flask(__name__)
+
 # Celery configuration
 app.config['CELERY_BROKER_URL'] = os.environ['REDIS_URL']
 
@@ -31,8 +34,6 @@ def send():
     message_creative_id = set_broadcast()   #Send the message to fb
     send_broadcast(message_creative_id)
 
-
-app = Flask(__name__)
 
 ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']

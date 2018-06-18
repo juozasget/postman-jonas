@@ -23,11 +23,11 @@ celery.conf.update(app.config)
 @celery.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     # Calls test('world') every 30 seconds
-    sender.add_periodic_task(30.0, send_task(), expires=10)
+    sender.add_periodic_task(30.0, send_task.s()
+    )
     # Executes every Monday morning at 7:30 a.m.
     sender.add_periodic_task(
-        crontab(hour=7, minute=30, day_of_week=1),
-        send_task(),
+        crontab(hour=7, minute=30, day_of_week=1), send_task.s(),
     )
 
 @celery.task

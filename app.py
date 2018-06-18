@@ -6,6 +6,31 @@ from datetime import datetime
 
 import requests
 from flask import Flask, request
+from celery import Celery
+
+# Celery configuration
+app.config['CELERY_BROKER_URL'] = os.environ['REDIS_URL']
+
+# Initialize Celery
+celery = Celery(app.name, broker=app.config[os.environ['REDIS_URL']])
+celery.conf.update(app.config)
+
+
+@app.on_after_configure.connect
+def setup_periodic_tasks(sender, **kwargs):
+    # Calls test('world') every 30 seconds
+    sender.add_periodic_task(30.0, send.s(), expires=10)
+    # Executes every Monday morning at 7:30 a.m.
+    sender.add_periodic_task(
+        crontab(hour=7, minute=30, day_of_week=1),
+        send.s(),
+    )
+
+@app.task
+def send():
+    message_creative_id = set_broadcast()   #Send the message to fb
+    send_broadcast(message_creative_id)
+
 
 app = Flask(__name__)
 

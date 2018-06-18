@@ -20,7 +20,7 @@ celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
 
-@app.on_after_configure.connect
+@celery.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     # Calls test('world') every 30 seconds
     sender.add_periodic_task(30.0, send.s(), expires=10)

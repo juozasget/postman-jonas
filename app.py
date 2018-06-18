@@ -30,7 +30,7 @@ def setup_periodic_tasks(sender, **kwargs):
         send.s(),
     )
 
-@app.task
+@celery.task
 def send():
     message_creative_id = set_broadcast()   #Send the message to fb
     send_broadcast(message_creative_id)

@@ -13,7 +13,7 @@ from celery.schedules import crontab
 app = Flask(__name__)
 
 # Celery configuration
-app.config.update['CELERY_BROKER_URL'] = os.environ['REDIS_URL']
+app.config['CELERY_BROKER_URL'] = os.environ['REDIS_URL']
 
 # Initialize Celery
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])

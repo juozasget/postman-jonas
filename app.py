@@ -7,6 +7,7 @@ from datetime import datetime
 import requests
 from flask import Flask, request
 from celery import Celery
+from celery.schedules import crontab
 
 
 app = Flask(__name__)

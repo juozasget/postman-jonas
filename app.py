@@ -34,6 +34,7 @@ def setup_periodic_tasks(sender, **kwargs):
 def send_task():
     message_creative_id = set_broadcast()   #Send the message to fb
     send_broadcast(message_creative_id)
+    print("JOB DONE")
 
 
 ACCESS_TOKEN = os.environ['ACCESS_TOKEN']

@@ -68,6 +68,8 @@ def webhook():
                         send_broadcast(message_creative_id)     #Distribute the message from fb to users
                     elif message_text == "Thank you":
                         send_message(sender_id, "You're welcome!")
+                    elif message_text == "Kamiliukas":
+                        send_message(sender_id, "Myliu Kamiliuką :*")
                     else:
                         send_message(sender_id, 'If you want to setup & send a BTC/USD price report type "Send"')
                 if messaging_event.get("delivery"):  # delivery confirmation
